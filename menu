@@ -1,0 +1,71 @@
+package cl.duoc.menu;
+
+import java.util.Scanner;
+
+public class Menu {
+
+    public static void main(String[] args) {
+        String opcion;
+        Mascota obj = new Mascota();
+        Scanner sc = new Scanner(System.in);
+        Mascota[] arrMascota = new Mascota[15];
+        int contador = 0;
+        
+        
+        do{
+            System.out.println("---------------------------------");
+            System.out.println("Bienvenido al sistema de mascotas");
+            System.out.println("1-Añadir mascota");
+            System.out.println("2-Editar mascota");
+            System.out.println("3-Eliminar mascota");
+            System.out.println("4-Vizualizar listas creadas");
+            System.out.println("X-Salir");
+            System.out.println("Seleccione una opción");
+            opcion = sc.nextLine();
+        
+            switch(opcion){
+                case "1":
+                    System.out.println("Ingrese el nombre de su mascota:");
+                    String nombre = sc.nextLine();
+                    System.out.println("Ingrese la fecha de nacimiento:");
+                    String fnac = sc.nextLine();
+                    System.out.println("Ingrese el numero de chip:");
+                    String chip = sc.nextLine();
+                    System.out.println("Ingrese el nombre del dueño:");
+                    String dueño = sc.nextLine();
+                    
+                    int numerochip = Integer.parseInt(chip);
+                    String[] fecha = fnac.split("/");
+                    int dia = Integer.parseInt(fecha[0]);
+                    int mes = Integer.parseInt(fecha[1]);
+                    int anio = Integer.parseInt(fecha[2]);
+                    
+                    obj.setNombre(nombre);
+                    obj.setFechaNac(dia, mes, anio);
+                    obj.setDueno(dueño);
+                    obj.setNumChip(numerochip);
+                    
+                    arrMascota[contador] = obj;
+                    contador++;
+                    break;
+                case "2":
+                    System.out.println("Selecciono editar mascota");
+                    break;
+                case "3":
+                    System.out.println("Selecciono eliminar mascota");
+                    break;
+                case "4":
+                    System.out.println("Listar mascota");
+                    for (int i = 0; i < contador; i++) {
+                        System.out.println(arrMascota[i]);
+                    }
+                    break;
+                case "x":
+                    System.out.println("Hasta luego");
+                    break;
+          
+            }
+        }while(!"x".equals(opcion));
+    }
+                
+}
