@@ -1,0 +1,71 @@
+
+package cl.duoc.menu;
+
+import java.time.LocalDate;
+import java.time.Month;
+
+public class Mascota {
+    private String nombre;
+    private LocalDate fechaNac;
+    private int numChip;
+    private String dueno;
+    
+    
+    public Mascota() {
+        this.nombre = "";
+        this.fechaNac = LocalDate.now();
+        this.numChip = -1;
+        this.dueno = "";
+    }
+
+    public Mascota(String nombre, LocalDate fechaNac, int numChip, String dueno) {
+        this.nombre = nombre;
+        this.fechaNac = fechaNac;
+        this.numChip = numChip;
+        this.dueno = dueno;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public LocalDate getFechaNac() {
+        return fechaNac;
+    }
+
+    public void setFechaNac(LocalDate fechaNac) {
+        this.fechaNac = fechaNac;
+    }
+
+    public int getNumChip() {
+        return numChip;
+    }
+
+    public void setNumChip(int numChip) {
+        this.numChip = numChip;
+    }
+
+    public String getDueno() {
+        return dueno;
+    }
+
+    public void setDueno(String dueno) {
+        this.dueno = dueno;
+    }
+    
+    public void setFechaNac(int dia, int mes, int anio) {
+        this.fechaNac = LocalDate.of(anio, mes, dia);
+    }
+    
+    @Override
+    public String toString(){
+        return this.nombre+" "
+                +this.numChip
+                +", nacido el "+ this.fechaNac.toString()
+                +" dueño:"+this.dueno;
+    }
+}
